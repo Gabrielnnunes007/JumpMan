@@ -16,7 +16,9 @@ class Menu:
         self.rect = self.surf.get_rect(left=0,top=0)
 
     def run(self):
+        menu_option = 0
         pygame.mixer_music.load('./asset/game songs/menu.mp3')
+        pygame.mixer_music.set_volume(0.5)
         pygame.mixer_music.play(-1)
 
         while True:
@@ -24,9 +26,12 @@ class Menu:
             self.menu_text(60, "Jump", color_red, ((WIN_WIDTH / 2), 50))
             self.menu_text(60, "Man", color_red, ((WIN_WIDTH / 2), 110))
 
-            for i in range(len(MENU_OPTION)):
-                self.menu_text(20, MENU_OPTION[i], color_white, ((WIN_WIDTH / 2), 200 + 25 * i))
 
+            for i in range(len(MENU_OPTION)):
+                if i == menu_option:
+                    self.menu_text(30, MENU_OPTION[i], color_red, ((WIN_WIDTH / 2), 200 + 25 * i))
+                else:
+                    self.menu_text(20, MENU_OPTION[i], color_white, ((WIN_WIDTH / 2), 200 + 25 * i))
 
             pygame.display.flip()
 
@@ -34,6 +39,27 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+                somMenu = pygame.mixer.Sound('./asset/game songs/somMenu.mp3')
+                somMenu.set_volume(0.3)
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        if menu_option < len(MENU_OPTION) - 1:
+                            somMenu.play()
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+                            somMenu.play()
+                    if event.key == pygame.K_UP:
+                        if menu_option > 0:
+                            menu_option += -1
+                            somMenu.play()
+                        else:
+                            menu_option = len(MENU_OPTION) -1
+                            somMenu.play()
+                    if event.key == pygame.K_RETURN:
+                        somMenu.play()
+                        return MENU_OPTION[menu_option]
+
 
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
@@ -41,11 +67,11 @@ class Menu:
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         text_rect.center = (
-            text_center_pos[0] + random.randint(0, 0),
-            text_center_pos[1] + random.randint(-1, 0)
+            text_center_pos[0] + random.randint(-1, 0),
+            text_center_pos[1] + random.randint(0, 0)
         )
         shadow_surf = text_font.render(text, True, (150, 0, 0)).convert_alpha()
-        shadow_rect = shadow_surf.get_rect(center=(text_center_pos[0] + 2, text_center_pos[1] + 2))
+        shadow_rect = shadow_surf.get_rect(center=(text_center_pos[0], text_center_pos[1]))
         self.window.blit(shadow_surf, shadow_rect)
         self.window.blit(text_surf, text_rect)
         self.window.blit(source=text_surf, dest=text_rect)
