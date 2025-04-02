@@ -41,7 +41,7 @@ class Menu:
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         text_rect.center = (
-            text_center_pos[0] + random.randint(0, 0),
+            text_center_pos[0] + random.randint(1, 0),
             text_center_pos[1] + random.randint(-1, 0)
         )
         shadow_surf = text_font.render(text, True, (150, 0, 0)).convert_alpha()
