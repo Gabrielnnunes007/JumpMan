@@ -2,17 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import pygame.image
-import random
-from pygame import Surface, Rect
 from pygame.font import Font
-
 from game.code.const import WIN_WIDTH, MENU_OPTION, color_white, color_green
-
 
 class Menu:
     def __init__(self,window):
         self.window = window
-        self.surf = pygame.image.load('./asset/fases/levels/menu.png')
+        self.surf = pygame.image.load('./asset/fases/levels/menu.png').convert_alpha()
         self.surf = pygame.transform.scale(self.surf, (576, 324))  # Redimensiona a imagem
         self.rect = self.surf.get_rect()
 
@@ -67,9 +63,7 @@ class Menu:
         text_font = pygame.font.SysFont("Times New Roman", text_size, bold=bold)
         shadow_surf = text_font.render(text, True, shadow_color).convert_alpha()
         shadow_rect = shadow_surf.get_rect(center=(text_center_pos[0] + shadow_offset, text_center_pos[1] + shadow_offset))
-
         text_surf = text_font.render(text, True, text_color).convert_alpha()
         text_rect = text_surf.get_rect(center=text_center_pos)
-
         self.window.blit(shadow_surf, shadow_rect)
         self.window.blit(text_surf, text_rect)
