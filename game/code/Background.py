@@ -1,12 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from game.code.Entity import Entity
+from game.code.const import WIN_WIDTH, ENTITY_SPEED
 
-from Entity import Entity1
 
-
-class Background(Entity1):
-    def __init__(self):
-        pass
+class Background(Entity):
+    
+    def __init__(self, name: str, position: tuple):
+        super().__init__(name,position)
 
     def move(self, ):
+        self.rect.centerx -= ENTITY_SPEED[self.name]
+        if self.rect.right <= 0:
+            self.rect.left = WIN_WIDTH
         pass
