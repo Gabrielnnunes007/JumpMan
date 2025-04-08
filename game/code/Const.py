@@ -4,6 +4,7 @@ import pygame
 color_red = (180,0,0)
 color_white =(255,255,255)
 color_green = (255,165,0)
+color_blue = (0,128,128)
 
 # e
 ENTITY_SPEED = {
@@ -23,9 +24,20 @@ ENTITY_HEALTH = {
     'Level1bg3': 999,
     'Player1': 300,
     'Player2': 300,
-    'Enemy1': 50,
-    'Enemy2': 60,
+    'Enemy1': 999,
+    'Enemy2': 999,
 }
+ENTITY_DAMAGE = {
+    'Level1bg0': 0,
+    'Level1bg1': 0,
+    'Level1bg2': 0,
+    'Level1bg3': 0,
+    'Player1': 1,
+    'Player2': 1,
+    'Enemy1': 25,
+    'Enemy2': 25,
+}
+
 EVENT_ENEMY = pygame.USEREVENT + 1
 
 # m

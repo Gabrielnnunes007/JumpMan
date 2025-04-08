@@ -3,7 +3,7 @@
 
 import pygame.image
 from pygame.font import Font
-from game.code.const import WIN_WIDTH, MENU_OPTION, color_white, color_green
+from game.code.Const import WIN_WIDTH, MENU_OPTION, color_white, color_green
 
 class Menu:
     def __init__(self,window):

@@ -3,12 +3,14 @@
 import pygame.key
 
 from game.code.Entity import Entity
-from game.code.const import ENTITY_SPEED, WIN_WIDTH, PLAYER_KEY_UP, PLAYER_KEY_LEFT, PLAYER_KEY_RIGHT, WIN_HEIGHT
+from game.code.Const import ENTITY_SPEED, WIN_WIDTH, PLAYER_KEY_UP, PLAYER_KEY_LEFT, PLAYER_KEY_RIGHT, WIN_HEIGHT
 
 
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
+        self.last_hit_time = 0
+        self.hit_cooldown = 500
         self.velocity = 0
         self.gravity = 1
         self.jump_strength = -15

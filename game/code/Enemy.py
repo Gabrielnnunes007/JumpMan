@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from game.code.Entity import Entity
-from game.code.const import ENTITY_SPEED, WIN_WIDTH
+from game.code.Const import ENTITY_SPEED, WIN_WIDTH
 
 
 class Enemy(Entity):

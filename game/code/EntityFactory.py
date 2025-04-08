@@ -5,7 +5,7 @@ import random
 from game.code.Background import Background
 from game.code.Enemy import Enemy
 from game.code.Player import Player
-from game.code.const import WIN_WIDTH
+from game.code.Const import WIN_WIDTH
 
 
 class EntityFactory:

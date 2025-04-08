@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 import pygame.image
 
-from game.code.const import ENTITY_HEALTH
+from game.code.Const import ENTITY_HEALTH, ENTITY_DAMAGE
 
 
 class Entity(ABC):
@@ -14,6 +14,8 @@ class Entity(ABC):
         self.surf = pygame.image.load('./asset/fases/levels/' + name + '.png').convert_alpha()
         self.rect = self.surf.get_rect(left=position[0], top=position[1])
         self.health = ENTITY_HEALTH[self.name]
+        self.damage = ENTITY_DAMAGE[self.name]
+
 
     @abstractmethod
     def move(self, ):

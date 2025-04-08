@@ -10,7 +10,7 @@ from pygame.font import Font
 from game.code import Entity
 from game.code.EntityFactory import EntityFactory
 from game.code.EntityMediator import EntityMediator
-from game.code.const import color_white, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY
+from game.code.Const import color_white, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, color_green, color_red
 
 
 class Level:
@@ -24,7 +24,7 @@ class Level:
         self.entity_list.append(EntityFactory.get_entity('Player1'))
         if game_mode == MENU_OPTION[2]:
             self.entity_list.append(EntityFactory.get_entity('Player2'))
-        pygame.time.set_timer(EVENT_ENEMY,5000)
+        pygame.time.set_timer(EVENT_ENEMY,2000)
 
 
     def run(self):
@@ -40,10 +40,15 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if ent.name == 'Player1':
+                    self.level_text(14, f'Player1 - Health: {ent.health} | Score: ', color_green, (10, 25))
+                if ent.name == 'Player2':
+                    self.level_text(14, f'Player2 - Health: {ent.health} | Score: ', color_red, (10, 45))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy2', 'Enemy1'))
                     som_aleatorio = random.choice((somMonstro1, somMonstro2, somMonstro3, somMonstro4))
