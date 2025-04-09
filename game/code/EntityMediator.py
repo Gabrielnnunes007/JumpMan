@@ -40,6 +40,11 @@ class EntityMediator:
                 EntityMediator.__verify_collision_entity(entity1, entity2)
 
     @staticmethod
+    def __give_score():
+        pass
+
+
+    @staticmethod
     def __verify_collision_entity(ent1, ent2):
         current_time = pygame.time.get_ticks()
 

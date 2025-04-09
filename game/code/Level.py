@@ -35,15 +35,20 @@ class Level:
         somMonstro4 = pygame.mixer.Sound('./asset/game songs/monstro4.mp3')
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
+
         while True:
             clock.tick(60)
+            current_time = pygame.time.get_ticks()
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if hasattr(ent, 'update_timed_score') and ent.health > 0:
+                    ent.update_timed_score()
                 if ent.name == 'Player1':
-                    self.level_text(14, f'Player1 - Health: {ent.health} | Score: ', color_green, (10, 25))
-                if ent.name == 'Player2':
-                    self.level_text(14, f'Player2 - Health: {ent.health} | Score: ', color_red, (10, 45))
+                    self.level_text(14, f'P1 - Health: {ent.health} | Score: {ent.score}', color_green, (10, 25))
+                elif ent.name == 'Player2':
+                    self.level_text(14, f'P2 - Health: {ent.health} | Score: {ent.score}', color_red, (10, 45))
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
