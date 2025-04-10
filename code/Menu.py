@@ -8,13 +8,13 @@ from code.Const import WIN_WIDTH, MENU_OPTION, color_white, color_green
 class Menu:
     def __init__(self,window):
         self.window = window
-        self.surf = pygame.image.load('./asset/fases/levels/menu.png').convert_alpha()
+        self.surf = pygame.image.load('./asset/menu.png').convert_alpha()
         self.surf = pygame.transform.scale(self.surf, (576, 324))  # Redimensiona a imagem
         self.rect = self.surf.get_rect()
 
     def run(self):
         menu_option = 0
-        pygame.mixer_music.load('./asset/game songs/menu.mp3')
+        pygame.mixer_music.load('./asset/menu.mp3')
         pygame.mixer_music.set_volume(0.5)
         pygame.mixer_music.play(-1)
 
@@ -36,7 +36,7 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                somMenu = pygame.mixer.Sound('./asset/game songs/somMenu.mp3')
+                somMenu = pygame.mixer.Sound('./asset/somMenu.mp3')
                 somMenu.set_volume(0.3)
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:

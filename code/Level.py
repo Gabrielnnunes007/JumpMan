@@ -54,11 +54,11 @@ class Level:
 
 
     def run(self, player_score: list[int]):
-        pygame.mixer_music.load(f'./asset/game songs/levelMusic.mp3')
-        somMonstro1 = pygame.mixer.Sound('./asset/game songs/monstro1.mp3')
-        somMonstro2 = pygame.mixer.Sound('./asset/game songs/monstro2.mp3')
-        somMonstro3 = pygame.mixer.Sound('./asset/game songs/monstro3.mp3')
-        somMonstro4 = pygame.mixer.Sound('./asset/game songs/monstro4.mp3')
+        pygame.mixer_music.load(f'./asset/levelMusic.mp3')
+        somMonstro1 = pygame.mixer.Sound('./asset/monstro1.mp3')
+        somMonstro2 = pygame.mixer.Sound('./asset/monstro2.mp3')
+        somMonstro3 = pygame.mixer.Sound('./asset/monstro3.mp3')
+        somMonstro4 = pygame.mixer.Sound('./asset/monstro4.mp3')
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
 

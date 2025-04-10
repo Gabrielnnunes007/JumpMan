@@ -71,7 +71,7 @@ class EntityMediator:
         # Opcional: verifica jogadores mortos
         for ent in entity_list:
             if ent.name.startswith('Player') and ent.health <= 0:
-                somMorte = pygame.mixer.Sound('./asset/game songs/morte.mp3')
+                somMorte = pygame.mixer.Sound('./asset/morte.mp3')
                 somMorte.set_volume(0.3)
                 somMorte.play()
 

@@ -13,7 +13,7 @@ class Score:
 
     def __init__(self, window: Surface):
         self.window = window
-        self.surf = pygame.image.load('./asset/fases/levels/score.png').convert_alpha()
+        self.surf = pygame.image.load('./asset/score.png').convert_alpha()
         self.surf = pygame.transform.scale(self.surf, (576, 324))  # Redimensiona a imagem
         self.rect = self.surf.get_rect()
 
