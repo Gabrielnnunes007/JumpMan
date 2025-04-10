@@ -1,8 +1,0 @@
-- Change levels songs
-- Add music for score menu
-- Add a song when players have damage
-- Add sprites of players and enemies
-- Change survival mod
-    - Change health players, when it's in survival mode, only loss when gains damage
-- Change the level 2, bc the monster1 is fixed and not moving
-
