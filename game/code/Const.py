@@ -45,9 +45,9 @@ ENTITY_SPEED = {
     'Enemy1': 2,
     'Enemy2': 3,
     'Enemy3': 4,
-    'Enemy4': 4,
-    'Enemy5': 4,
-    'Enemy6': 4,
+    'Enemy4': 5,
+    'Enemy5': 6,
+    'Enemy6': 7,
 }
 ENTITY_HEALTH = {
     'Level1bg0': 999,
@@ -127,12 +127,12 @@ ENTITY_DAMAGE = {
 
     'Player1': 1,
     'Player2': 1,
-    'Enemy1': 25,
-    'Enemy2': 25,
+    'Enemy1': 15,
+    'Enemy2': 20,
     'Enemy3': 25,
-    'Enemy4': 25,
-    'Enemy5': 25,
-    'Enemy6': 25,
+    'Enemy4': 30,
+    'Enemy5': 40,
+    'Enemy6': 50,
 }
 EVENT_ENEMY = pygame.USEREVENT + 1
 EVENT_TIMEOUT = pygame.USEREVENT + 2
@@ -162,9 +162,27 @@ PLAYER_KEY_SHOOT = {
     'Player2': pygame.K_LCTRL
 }
 
+#s
+
 #t
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 10000
+TIMEOUT_LEVEL = 1000
 # w
 WIN_WIDTH = 576
 WIN_HEIGHT = 324
+
+SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
+             'EnterName': (WIN_WIDTH / 2, 80),
+             'Label': (WIN_WIDTH / 2, 90),
+             'Name': (WIN_WIDTH / 2, 110),
+             0: (WIN_WIDTH / 2, 110),
+             1: (WIN_WIDTH / 2, 130),
+             2: (WIN_WIDTH / 2, 150),
+             3: (WIN_WIDTH / 2, 170),
+             4: (WIN_WIDTH / 2, 190),
+             5: (WIN_WIDTH / 2, 210),
+             6: (WIN_WIDTH / 2, 230),
+             7: (WIN_WIDTH / 2, 250),
+             8: (WIN_WIDTH / 2, 270),
+             9: (WIN_WIDTH / 2, 290),
+             }
