@@ -40,6 +40,11 @@ class EntityMediator:
                 EntityMediator.__verify_collision_entity(entity1, entity2)
 
     @staticmethod
+    def __give_score():
+        pass
+
+
+    @staticmethod
     def __verify_collision_entity(ent1, ent2):
         current_time = pygame.time.get_ticks()
 
@@ -68,7 +73,8 @@ class EntityMediator:
         for ent in entity_list:
             if ent.name.startswith('Player') and ent.health <= 0:
                 somMorte = pygame.mixer.Sound('./asset/game songs/morte.mp3')
-                somMorte.play().set_volume(0.3)
+                somMorte.set_volume(0.3)
+                somMorte.play()
 
         # Filtra e remove automaticamente entidades com health <= 0
         entity_list[:] = [ent for ent in entity_list if ent.health > 0]

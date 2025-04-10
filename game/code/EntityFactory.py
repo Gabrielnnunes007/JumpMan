@@ -20,6 +20,42 @@ class EntityFactory:
                     list_bg.append(Background(f'Level1bg{i}',(WIN_WIDTH,0)))
                 return list_bg
 
+            case 'Level2bg':
+                list_bg = []
+                for i in range(2):
+                    list_bg.append(Background(f'Level2bg{i}',(0,0)))
+                    list_bg.append(Background(f'Level2bg{i}',(WIN_WIDTH,0)))
+                return list_bg
+
+            case 'Level3bg':
+                list_bg = []
+                for i in range(7):
+                    list_bg.append(Background(f'Level3bg{i}',(0,0)))
+                    list_bg.append(Background(f'Level3bg{i}',(WIN_WIDTH,0)))
+                return list_bg
+
+            case 'Level4bg':
+                list_bg = []
+                for i in range(4):
+                    list_bg.append(Background(f'Level4bg{i}',(0,0)))
+                    list_bg.append(Background(f'Level4bg{i}',(WIN_WIDTH,0)))
+                return list_bg
+
+            case 'Level5bg':
+                list_bg = []
+                for i in range(4):
+                    list_bg.append(Background(f'Level5bg{i}',(0,0)))
+                    list_bg.append(Background(f'Level5bg{i}',(WIN_WIDTH,0)))
+                return list_bg
+
+            case 'Level6bg':
+                list_bg = []
+                for i in range(4):
+                    list_bg.append(Background(f'Level6bg{i}',(0,0)))
+                    list_bg.append(Background(f'Level6bg{i}',(WIN_WIDTH,0)))
+                return list_bg
+
+
             case 'Player1':
                 return Player('Player1', (10,215))
             case 'Player2':
@@ -28,4 +64,11 @@ class EntityFactory:
                 return Enemy('Enemy1', (random.randint(WIN_WIDTH, 600), 225))
             case 'Enemy2':
                 return Enemy('Enemy2', (random.randint(WIN_WIDTH, 600), 225))
-
+            case 'Enemy3':
+                return Enemy('Enemy3', (random.randint(WIN_WIDTH, 600), 225))
+            case 'Enemy4':
+                return Enemy('Enemy4', (random.randint(WIN_WIDTH, 600), 225))
+            case 'Enemy5':
+                return Enemy('Enemy5', (random.randint(WIN_WIDTH, 600), 225))
+            case 'Enemy6':
+                return Enemy('Enemy6', (random.randint(WIN_WIDTH, 600), 225))

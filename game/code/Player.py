@@ -10,6 +10,10 @@ class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
         self.last_hit_time = 0
+        self.score = 0
+        self.score_interval = 3000
+        self.points_per_interval = 10
+        self.last_score_time = pygame.time.get_ticks()
         self.hit_cooldown = 500
         self.velocity = 0
         self.gravity = 1
@@ -33,3 +37,11 @@ class Player(Entity):
         if self.rect.centery >= self.ground_level:
             self.rect.centery = self.ground_level
             self.velocity = 0
+
+    def update_timed_score(self):
+        current_time = pygame.time.get_ticks()
+        if current_time - self.last_score_time > self.score_interval:
+            self.score += self.points_per_interval
+            self.last_score_time = current_time
+            return True  # Retorna True se pontos foram adicionados
+        return False
